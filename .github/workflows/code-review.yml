@@ -14,10 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Check OpenAI Key
-        run: echo "OpenAI Key is set: ${{ secrets.OPENAI_API_KEY != '' }}"
+        uses: actions/checkout@v4
 
       - name: Code Review GPT
         uses: mattzcarey/code-review-gpt@v0.1.10
