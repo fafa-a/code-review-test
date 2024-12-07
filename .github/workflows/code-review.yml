@@ -1,0 +1,22 @@
+name: Code Review
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch if it's not 'main'
+  pull_request:
+    branches:
+      - main  # Change this to your default branch if it's not 'main'
+
+jobs:
+  code-review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Code Review GPT
+        uses: mattzcarey/code-review-gpt@v0.1.10
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} 
