@@ -1,22 +1,16 @@
 name: Code Review
 
-on:
-  push:
-    branches:
-      - main  # Change this to your default branch if it's not 'main'
-  pull_request:
-    branches:
-      - main  # Change this to your default branch if it's not 'main'
+on: [push]
 
 jobs:
-  code-review:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Code Review GPT
-        uses: mattzcarey/code-review-gpt@v0.1.10
+      - name: Check OpenAI Key
+        run: echo "OpenAI Key is set: $OPENAI_API_KEY"
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} 
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
